@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Student Registration</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <h1>Student Registration Portal</h1>
+    <nav>
+      <a class="nav-link" href="view.php">View Records</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="card">
+      <h2 class="card-title">Register New Student</h2>
+
+      <!-- Messages (success/error) injected via JS from URL params) -->
+      <div id="msg-container"></div>
+
+      <form class="form" action="process.php" method="POST" novalidate>
+        <div class="form-group">
+          <label for="full_name">Full Name <span class="required">*</span></label>
+          <input type="text" id="full_name" name="full_name" placeholder="e.g., Jane Doe" required maxlength="100" />
+          <small class="error" data-error-for="full_name"></small>
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email <span class="required">*</span></label>
+          <input type="email" id="email" name="email" placeholder="e.g., jane@example.com" required maxlength="100" />
+          <small class="error" data-error-for="email"></small>
+        </div>
+
+        <div class="form-group">
+          <label for="department">Department <span class="required">*</span></label>
+          <input type="text" id="department" name="department" placeholder="e.g., Computer Science" required maxlength="50" />
+          <small class="error" data-error-for="department"></small>
+        </div>
+
+        <div class="form-group">
+          <label for="matric_number">Matric Number <span class="required">*</span></label>
+          <input type="text" id="matric_number" name="matric_number" placeholder="e.g., CSC/2025/001" required maxlength="20" />
+          <small class="error" data-error-for="matric_number"></small>
+        </div>
+
+        <button class="btn btn-primary" type="submit">Submit Registration</button>
+      </form>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <small>&copy; <span id="year"></span> Student Registration System</small>
+  </footer>
+
+  <script>
+    // Simple client-side validation hints
+    document.querySelector('.form').addEventListener('submit', function(e) {
+      const fields = ['full_name','email','department','matric_number'];
+      let valid = true;
+      fields.forEach(id => {
+        const input = document.getElementById(id);
+        const errorEl = document.querySelector(`[data-error-for="${id}"]`);
+        if (!input.checkValidity()) {
+          valid = false;
+          errorEl.textContent = 'This field is required.';
+          input.classList.add('input-error');
+        } else {
+          errorEl.textContent = '';
+          input.classList.remove('input-error');
+        }
+      });
+      if (!valid) e.preventDefault();
+    });
+
+    // Show messages from URL (?status=success|error&message=...)
+    (function() {
+      const params = new URLSearchParams(window.location.search);
+      const status = params.get('status');
+      const message = params.get('message');
+      if (!status || !message) return;
+      const div = document.createElement('div');
+      div.className = 'alert ' + (status === 'success' ? 'alert-success' : 'alert-error');
+      div.textContent = message;
+      document.getElementById('msg-container').appendChild(div);
+    })();
+
+    // Footer year
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
