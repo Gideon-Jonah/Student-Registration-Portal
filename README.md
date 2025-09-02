@@ -7,15 +7,18 @@
 - **Assignment Title**: Student Registration System
 
 ## Project Overview
-A simple PHP/MySQL web app that allows users to register new students, view existing records, and delete student entries. It uses PDO with prepared statements and creates the required table automatically on first run.
+A simple PHP/MySQL web app that allows users to register new students, view existing records, and delete student entries.
 
 ## Requirements
 - **XAMPP** (Apache + MySQL/MariaDB + PHP 7.0+)
 - **Web Browser** (JavaScript enabled)
 
 ## Quick Start (XAMPP on Windows)
-1. Download/clone this repository into your XAMPP web root:
-   - `C:\xampp\htdocs\student-registration`
+1. Clone the repository into your XAMPP web root as `student-registration`:
+   - Open Command Prompt and run:
+     ```bash
+     git clone https://github.com/Gideon-Jonah/csc-23-CSC-149-assignment-repo.git C:\xampp\htdocs\student-registration
+     ```
 2. Open **XAMPP Control Panel** and start:
    - **Apache**
    - **MySQL** (ensure it shows green/running)
@@ -78,4 +81,5 @@ If you see "Unknown database 'student_db'":
 
 ## Contributor(s)
 @GoodnewsCodes https://github.com/GoodnewsCodes
+
 
