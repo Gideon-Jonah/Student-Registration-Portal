@@ -45,8 +45,8 @@ You can override via environment variables if needed:
 ## Screenshots
 Attach or verify the screenshot here:
 
-<img src="images/index.html.png" alt="Registration screen (index.html)" width="600" height="250" />
-<img src="images/view.php.png" alt="Registration screen (index.html)" width="600" height="250" />
+<img src="images/index.html.png" alt="Registration screen (index.html)" width="200" height="450" />
+<img src="images/view.php.png" alt="Registration screen (index.html)" width="200" height="450" />
 
 ## Project Structure
 - **database.php**: Database connection and table setup
@@ -70,4 +70,5 @@ Please check:
 5. If the host resolves oddly on your setup, try `127.0.0.1` as `DB_HOST`.
 
 If you see "Unknown database 'student_db'":
+
 - Create the database as shown above, then refresh the app.
