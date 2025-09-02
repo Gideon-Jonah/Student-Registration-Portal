@@ -38,6 +38,26 @@ A simple PHP/MySQL web app that allows users to register new students, view exis
 You can override via environment variables if needed:
 - `DB_HOST`, `DB_NAME`, `DB_USER`, `DB_PASS`
 
+## How to Use
+1. Open `index.html` to register a new student.
+2. Use `view.php` to see all registered students and delete entries.
+
+## Screenshots
+Attach or verify the screenshot here:
+
+<img src="images/index.html.png" alt="Registration screen (index.html)" width="600" height="250" />
+<img src="images/view.php.png" alt="Registration screen (index.html)" width="600" height="250" />
+
+## Project Structure
+- **database.php**: Database connection and table setup
+- **process.php**: Form submission handler
+- **delete.php**: Record deletion handler
+- **view.php**: List of registered students
+- **index.html**: Registration form
+- **style.css**: App styles
+- **images/**: Screenshots
+
+---
 ## Troubleshooting
 If you see this error:
 > Database connection failed: SQLSTATE[HY000] [2002] No connection could be made because the target machine actively refused it
@@ -51,25 +71,3 @@ Please check:
 
 If you see "Unknown database 'student_db'":
 - Create the database as shown above, then refresh the app.
-
-## How to Use
-1. Open `index.html` to register a new student.
-2. Use `view.php` to see all registered students and delete entries.
-
-## Screenshots
-Attach or verify the screenshot here:
-
-<img src="images/index.html.png" alt="Registration screen (index.html)" width="800" height="450" />
-<img src="images/view.php.png" alt="Registration screen (index.html)" width="800" height="450" />
-
-## Project Structure
-- **database.php**: Database connection and table setup
-- **process.php**: Form submission handler
-- **delete.php**: Record deletion handler
-- **view.php**: List of registered students
-- **index.html**: Registration form
-- **style.css**: App styles
-- **images/**: Screenshots
-
----
-Replace the placeholders in the Student Details section (Name, Matric Number, Course Code) before submitting/pushing to GitHub.
