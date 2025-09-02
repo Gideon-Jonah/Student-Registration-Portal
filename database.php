@@ -29,6 +29,13 @@ try {
         ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
     SQL);
 } catch (PDOException $e) {
+    if (defined('ALLOW_DB_FAIL_SILENT') && ALLOW_DB_FAIL_SILENT) {
+        // Expose a soft-fail for pages that want to handle fallback (e.g., view.php)
+        $pdo = null;
+        $DB_CONNECTION_FAILED = true;
+        $DB_ERROR = $e->getMessage();
+        return;
+    }
     http_response_code(500);
     // For production, avoid exposing detailed DB errors
     die('Database connection failed: ' . $e->getMessage());
