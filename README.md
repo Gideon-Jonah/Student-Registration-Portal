@@ -73,3 +73,9 @@ If you see "Unknown database 'student_db'":
 
 - Create the database as shown above, then refresh the app.
 
+
+
+
+## Contributor(s)
+@GoodnewsCodes https://github.com/GoodnewsCodes
+
